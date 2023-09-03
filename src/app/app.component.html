@@ -57,7 +57,7 @@
       <p *ngIf="loadedPosts.length < 1 && !isFetching">No posts available!</p>
       <ul class="list-group" *ngIf="loadedPosts.length >= 1 && !isFetching">
         <li class="list-group-item" *ngFor="let post of loadedPosts">
-          <h3>{{ post.title }}</h3>
+          <h5>{{ post.title }}</h5>
           <p>{{ post.content }}</p>
         </li>
       </ul>
