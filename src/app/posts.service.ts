@@ -37,8 +37,6 @@ export class PostsService {
 
   fetchPosts() {
     let searchParams = new HttpParams();
-    searchParams = searchParams.append('print', 'pretty');
-    searchParams = searchParams.append('custom', 'key');
     return this.http
       .get<{ [key: string]: Post }>(
         'http://18.169.165.162:8083/employee',
