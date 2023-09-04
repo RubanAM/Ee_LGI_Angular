@@ -19,7 +19,7 @@ export class PostsService {
   createAndStorePost(postData: Post) {
     this.http
       .post<{ Post }>(
-        'http://18.169.165:8083/employee',
+        'http://18.169.165.162:8083/employee',
         postData,
         {
           observe: 'response'
@@ -41,7 +41,7 @@ export class PostsService {
     searchParams = searchParams.append('custom', 'key');
     return this.http
       .get<{ [key: string]: Post }>(
-        'http://18.169.165:8083/employee',
+        'http://18.169.165.162:8083/employee',
         {
           headers: new HttpHeaders({ 'Custom-Header': 'Hello' }),
           params: searchParams,
@@ -67,7 +67,7 @@ export class PostsService {
 
   deletePosts() {
     return this.http
-      .delete('http://18.169.165:8083/employee', {
+      .delete('http://18.169.165.162:8083/employee', {
         observe: 'events',
         responseType: 'text'
       })
