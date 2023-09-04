@@ -9,6 +9,7 @@ import { map, catchError, tap } from 'rxjs/operators';
 import { Subject, throwError } from 'rxjs';
 
 import { Post } from './post.model';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({ providedIn: 'root' })
 export class PostsService {
@@ -38,8 +39,9 @@ export class PostsService {
   fetchPosts() {
     let searchParams = new HttpParams();
     return this.http
-      .get<{ [key: string]: Post }>(
-        'http://18.169.165.162:8083/employee',
+      .get<{ Post }>(
+     //   'http://localhost:3000/employee',
+       'http://18.169.165.162:8083/employee',
         {
           headers: new HttpHeaders({ 'Custom-Header': 'Hello' }),
           params: searchParams,
@@ -51,7 +53,7 @@ export class PostsService {
           const postsArray: Post[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
-              postsArray.push({ ...responseData[key], employeeId: key });
+              postsArray.push({ ...responseData[key] });
             }
           }
           return postsArray;
