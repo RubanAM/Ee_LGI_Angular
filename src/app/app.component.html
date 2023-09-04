@@ -13,9 +13,8 @@
             name="employeeId"
           />
         </div>
-        <br>
         <div class="form-group">
-          <label for="firstName">Employee name</label>
+          <label for="firstName">First name</label>
           <input
             type="text"
             class="form-control"
@@ -23,6 +22,37 @@
             required
             ngModel
             name="firstName"
+          />
+        </div>
+        <div class="form-group">
+          <label for="firstName">Last name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            required
+            ngModel
+            name="lastName"
+          />
+        </div>
+        <div class="form-group">
+          <label for="firstName">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            ngModel
+            name="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="firstName">Department</label>
+          <input
+            type="text"
+            class="form-control"
+            id="department"
+            ngModel
+            name="department"
           />
         </div>
         <br>
@@ -35,6 +65,12 @@
         </button>
       </form>
     </div>
+    <ng-container *ngIf="addSuccess"; else addFailed>
+      <h5>Employee added successfully</h5>
+    </ng-container>
+    <ng-template #addFailed>
+      <h5>oops!! could not add the employee</h5>
+    </ng-template>
   </div>
   <hr />
   <div class="row">
@@ -42,26 +78,60 @@
       <button class="btn btn-primary" (click)="onFetchPosts()">
         Fetch Employee details
       </button>
-      |
-      <button
-        class="btn btn-danger"
-        [disabled]="loadedPosts.length < 1"
-        (click)="onClearPosts()"
-      >
-        Clear Data
-      </button>
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <p *ngIf="loadedPosts.length < 1 && !isFetching">No posts available!</p>
-      <ul class="list-group" *ngIf="loadedPosts.length >= 1 && !isFetching">
-        <li class="list-group-item" *ngFor="let post of loadedPosts">
-          <h5>{{ post.employeeId }}</h5>
-          <p>{{ post.firstName }} </p> 
-          <p> {{post.lastName}}</p>
-        </li>
-      </ul>
+      <table class="table">
+        <thead>
+          <th scope="col">
+            <span>Employee ID</span>
+          </th>
+          <th scope="col">
+            <span>First Name</span>
+          </th>
+          <th scope="col">
+            <span>Last Name</span>
+          </th>
+          <th scope="col">
+            <span>Email</span>
+          </th>
+          <th scope="col">
+            <span>Department</span>
+          </th>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="loadedPosts.length >= 1 && !isFetching">
+            <ng-container *ngFor="let post of loadedPosts">
+              <tr>
+                <td>
+                  <span>{{ post.employeeId }}</span>
+                </td>
+                <td>
+                  <span>{{ post.firstName }}</span>
+                </td>
+                <td>
+                  <span>{{ post.lastName }}</span>
+                </td>
+                <td>
+                  <span>{{ post.email }}</span>
+                </td>
+                <td>
+                  <span>{{ post.department }}</span>
+                </td>
+                <button
+                  class="btn btn-danger"
+                  (click)="onClearPosts(post)"
+                >
+                  Delete
+                </button>
+              </tr>
+            </ng-container>
+          </ng-container>
+        </tbody>
+      </table>
       <p *ngIf="isFetching && !error">Loading...</p>
       <div class="alert alert-danger" *ngIf="error">
         <h1>An Error Occurred!</h1>

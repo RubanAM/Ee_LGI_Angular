@@ -3,12 +3,16 @@
         {
             "employeeId": "2345",
             "firstName": "Employee 1",
-            "lastname": "emplast"
+            "lastName": "Emplast",
+            "email": "emp1@test.com",
+            "department": "IT"
         },
         {
             "employeeId": "2346",
             "firstName": "Employee 2",
-            "lastname": "emplast 2"
+            "lastName": "Emplast 2",
+            "email": "emp2@test.com",
+            "department": "IT"
         }
     ]
 }
