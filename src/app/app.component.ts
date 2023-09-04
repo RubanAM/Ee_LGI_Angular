@@ -29,6 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
       posts => {
         this.isFetching = false;
         this.loadedPosts = posts;
+        console.log("loaded posts 1",this.loadedPosts)
       },
       error => {
         this.isFetching = false;
@@ -39,7 +40,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   onCreatePost(postData: Post) {
     // Send Http request
-    this.postsService.createAndStorePost(postData.title, postData.content);
+    this.postsService.createAndStorePost(postData);
   }
 
   onFetchPosts() {
@@ -49,6 +50,7 @@ export class AppComponent implements OnInit, OnDestroy {
       posts => {
         this.isFetching = false;
         this.loadedPosts = posts;
+        console.log("loaded posts 2",this.loadedPosts)
       },
       error => {
         this.isFetching = false;

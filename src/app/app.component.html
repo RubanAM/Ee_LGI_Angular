@@ -3,26 +3,26 @@
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <form #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
         <div class="form-group">
-          <label for="title">Employee ID</label>
+          <label for="employeeId">Employee ID</label>
           <input
             type="text"
             class="form-control"
-            id="title"
+            id="employeeId"
             required
             ngModel
-            name="title"
+            name="employeeId"
           />
         </div>
         <br>
         <div class="form-group">
-          <label for="content">Employee name</label>
+          <label for="firstName">Employee name</label>
           <input
             type="text"
             class="form-control"
-            id="content"
+            id="firstName"
             required
             ngModel
-            name="content"
+            name="firstName"
           />
         </div>
         <br>
@@ -57,8 +57,9 @@
       <p *ngIf="loadedPosts.length < 1 && !isFetching">No posts available!</p>
       <ul class="list-group" *ngIf="loadedPosts.length >= 1 && !isFetching">
         <li class="list-group-item" *ngFor="let post of loadedPosts">
-          <h5>{{ post.title }}</h5>
-          <p>{{ post.content }}</p>
+          <h5>{{ post.employeeId }}</h5>
+          <p>{{ post.firstName }} </p> 
+          <p> {{post.lastName}}</p>
         </li>
       </ul>
       <p *ngIf="isFetching && !error">Loading...</p>

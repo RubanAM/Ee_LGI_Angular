@@ -1,12 +1,14 @@
 {
     "response": [
         {
-            "title": "1",
-            "content": "Employee 1"
+            "employeeId": "2345",
+            "firstName": "Employee 1",
+            "lastname": "emplast"
         },
         {
-            "title": "2",
-            "content": "Employee 2"
+            "employeeId": "2346",
+            "firstName": "Employee 2",
+            "lastname": "emplast 2"
         }
     ]
 }

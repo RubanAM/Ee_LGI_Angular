@@ -19,13 +19,13 @@ describe('AppComponent', () => {
   it(`should have as title 'ng-complete-guide-update'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('ng-complete-guide-update');
+    expect(app.employeeId).toEqual('ng-complete-guide-update');
   });
 
-  it('should render title in a h1 tag', () => {
+  it('should render employeeId in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to ng-complete-guide-update!');
+    expect(compiled.querySelector('h1').textContent).toContain('Engineering Enablement Batch-1');
   });
 });

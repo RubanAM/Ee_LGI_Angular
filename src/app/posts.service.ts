@@ -16,10 +16,9 @@ export class PostsService {
 
   constructor(private http: HttpClient) {}
 
-  createAndStorePost(title: string, content: string) {
-    const postData: Post = { title: title, content: content };
+  createAndStorePost(postData: Post) {
     this.http
-      .post<{ name: string }>(
+      .post<{ Post }>(
         'http://localhost:3000/response',
         postData,
         {
@@ -42,7 +41,7 @@ export class PostsService {
     searchParams = searchParams.append('custom', 'key');
     return this.http
       .get<{ [key: string]: Post }>(
-        'http://localhost:3000/response',
+        'http://18.169.165:8083/response',
         {
           headers: new HttpHeaders({ 'Custom-Header': 'Hello' }),
           params: searchParams,
@@ -54,7 +53,7 @@ export class PostsService {
           const postsArray: Post[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
-              postsArray.push({ ...responseData[key], id: key });
+              postsArray.push({ ...responseData[key], employeeId: key });
             }
           }
           return postsArray;
