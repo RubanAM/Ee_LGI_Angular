@@ -17,7 +17,7 @@ export class PostsService {
 
   constructor(private http: HttpClient) {}
 
-  createAndStorePost(postData: Post) {
+  createAndStorePost(postData: Post, addSuccess: boolean) {
     this.http
       .post<{ Post }>(
         'http://18.169.165.162:8083/employee',
@@ -29,6 +29,7 @@ export class PostsService {
       .subscribe(
         responseData => {
           console.log(responseData);
+          addSuccess=true;
         },
         error => {
           this.error.next(error.message);
@@ -40,8 +41,8 @@ export class PostsService {
     let searchParams = new HttpParams();
     return this.http
       .get<{ Post }>(
-     //   'http://localhost:3000/employee',
-       'http://18.169.165.162:8083/employee',
+        'http://localhost:3000/employee',
+       /* 'http://18.169.165.162:8083/employee', */
         {
           headers: new HttpHeaders({ 'Custom-Header': 'Hello' }),
           params: searchParams,
@@ -65,11 +66,11 @@ export class PostsService {
       );
   }
 
-  deletePosts() {
+  deletePosts(employeeID: string) {
     return this.http
-      .delete('http://18.169.165.162:8083/employee', {
-        observe: 'events',
-        responseType: 'text'
+      /* .delete<{string}>('http://18.169.165.162:8083/employee/'+ employeeID, { */
+      .delete<{string}>('http://localhost:3000/employee/'+ employeeID, {
+        observe: 'events'
       })
       .pipe(
         tap(event => {

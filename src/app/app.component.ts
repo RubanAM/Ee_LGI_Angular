@@ -16,10 +16,12 @@ export class AppComponent implements OnInit, OnDestroy {
   isFetching = false;
   error = null;
   private errorSub: Subscription;
+  addSuccess:boolean = false;
 
   constructor(private http: HttpClient, private postsService: PostsService) {}
 
   ngOnInit() {
+    this.addSuccess = false;
     this.errorSub = this.postsService.error.subscribe(errorMessage => {
       this.error = errorMessage;
     });
@@ -40,7 +42,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   onCreatePost(postData: Post) {
     // Send Http request
-    this.postsService.createAndStorePost(postData);
+    this.postsService.createAndStorePost(postData,this.addSuccess);
   }
 
   onFetchPosts() {
@@ -60,9 +62,9 @@ export class AppComponent implements OnInit, OnDestroy {
     );
   }
 
-  onClearPosts() {
+  onClearPosts(post: Post) {
     // Send Http request
-    this.postsService.deletePosts().subscribe(() => {
+    this.postsService.deletePosts(post.employeeId).subscribe(() => {
       this.loadedPosts = [];
     });
   }
