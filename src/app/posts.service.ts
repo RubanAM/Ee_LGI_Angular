@@ -68,8 +68,8 @@ export class PostsService {
 
   deletePosts(employeeID: string) {
     return this.http
-      /* .delete<{string}>('http://18.169.165.162:8083/employee/'+ employeeID, { */
-      .delete<{string}>('http://localhost:3000/employee/'+ employeeID, {
+      .delete<{string}>('http://18.169.165.162:8083/employee/'+ employeeID, {
+      /* .delete<{string}>('http://localhost:3000/employee/'+ employeeID, { */
         observe: 'events'
       })
       .pipe(
