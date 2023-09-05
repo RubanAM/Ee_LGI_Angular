@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 
-import { Post } from './post.model';
+import { AddForm, Department, Post } from './post.model';
 import { PostsService } from './posts.service';
 
 @Component({
@@ -40,7 +40,18 @@ export class AppComponent implements OnInit, OnDestroy {
     );
   }
 
-  onCreatePost(postData: Post) {
+  onCreatePost(formData: AddForm) {
+    let departmentData: Department = {
+      departmentCode: formData.departmentCode,
+      departmentName: formData.departmentName
+    }
+    let postData: Post = {
+      employeeId: formData.employeeId,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      department: departmentData
+    }
     // Send Http request
     this.postsService.createAndStorePost(postData,this.addSuccess);
   }
