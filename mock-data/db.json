@@ -5,14 +5,20 @@
             "firstName": "Employee 1",
             "lastName": "Emplast",
             "email": "emp1@test.com",
-            "department": "IT"
+            "department": {
+                "departmentCode": "354",
+                "departmentName": "IT"
+            }
         },
         {
             "employeeId": "2346",
             "firstName": "Employee 2",
             "lastName": "Emplast 2",
             "email": "emp2@test.com",
-            "department": "IT"
+            "department": {
+                "departmentCode": "354",
+                "departmentName": "IT"
+            }
         }
     ]
 }

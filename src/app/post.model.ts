@@ -3,5 +3,10 @@ export interface Post {
   firstName: string;
   lastName: string;
   email: string;
-  department: string;
+  department: Department;
+}
+
+export interface Department {
+  departmentCode: string;
+  departmentName: string;
 }

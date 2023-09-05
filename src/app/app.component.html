@@ -46,13 +46,23 @@
           />
         </div>
         <div class="form-group">
-          <label for="firstName">Department</label>
+          <label for="firstName">Department Code</label>
           <input
             type="text"
             class="form-control"
-            id="department"
+            id="departmentCode"
             ngModel
-            name="department"
+            name="departmentCode"
+          />
+        </div>
+        <div class="form-group">
+          <label for="firstName">Department Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="departmentName"
+            ngModel
+            name="departmentName"
           />
         </div>
         <br>
@@ -99,7 +109,10 @@
             <span>Email</span>
           </th>
           <th scope="col">
-            <span>Department</span>
+            <span>Department Code</span>
+          </th>
+          <th scope="col">
+            <span>Department Name</span>
           </th>
         </thead>
         <tbody>
@@ -119,7 +132,10 @@
                   <span>{{ post.email }}</span>
                 </td>
                 <td>
-                  <span>{{ post.department }}</span>
+                  <span>{{ post.department.departmentCode }}</span>
+                </td>
+                <td>
+                  <span>{{ post.department.departmentName}}</span>
                 </td>
                 <button
                   class="btn btn-danger"
