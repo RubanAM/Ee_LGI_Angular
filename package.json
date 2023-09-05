@@ -1,6 +1,6 @@
 {
   "name": "grp2-ui",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "scripts": {
     "deploy": "node --version",
     "ng": "ng",
