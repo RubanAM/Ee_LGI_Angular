@@ -41,8 +41,8 @@ export class PostsService {
     let searchParams = new HttpParams();
     return this.http
       .get<{ Post }>(
-        'http://localhost:3000/employee',
-       /* 'http://18.169.165.162:8083/employee', */
+        /* 'http://localhost:3000/employee', */
+       'http://18.169.165.162:8083/employees',
         {
           headers: new HttpHeaders({ 'Custom-Header': 'Hello' }),
           params: searchParams,
