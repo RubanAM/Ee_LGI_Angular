@@ -20,7 +20,7 @@ export class PostsService {
   createAndStorePost(postData: Post, addSuccess: boolean) {
     this.http
       .post<{ Post }>(
-        'http://13.40.181.236:8083/employee',
+        'https://v97g8jmdi6.execute-api.eu-west-2.amazonaws.com/dev/employee',
         postData,
         {
           observe: 'response'
@@ -42,7 +42,7 @@ export class PostsService {
     return this.http
       .get<{ Post }>(
         /* 'http://localhost:3000/employee', */
-       'http://13.40.181.236:8083/employees',
+       'https://v97g8jmdi6.execute-api.eu-west-2.amazonaws.com/dev/employees',
         {
           headers: new HttpHeaders({ 'Custom-Header': 'Hello' }),
           params: searchParams,
@@ -68,7 +68,7 @@ export class PostsService {
 
   deletePosts(employeeID: string) {
     return this.http
-      .delete<{string}>('http://13.40.181.236:8083/employee/'+ employeeID, {
+      .delete<{string}>('https://v97g8jmdi6.execute-api.eu-west-2.amazonaws.com/dev/employee/'+ employeeID, {
       /* .delete<{string}>('http://localhost:3000/employee/'+ employeeID, { */
         observe: 'events'
       })
