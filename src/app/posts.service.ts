@@ -42,7 +42,7 @@ export class PostsService {
     return this.http
       .get<{ Post }>(
         /* 'http://localhost:3000/employee', */
-       'https://v97g8jmdi6.execute-api.eu-west-2.amazonaws.com/dev/employees',
+       'http://13.40.181.236:8083/dev/employees',
         {
           headers: new HttpHeaders({ 'Custom-Header': 'Hello' }),
           params: searchParams,
