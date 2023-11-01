@@ -20,7 +20,7 @@ export class PostsService {
   createAndStorePost(postData: Post, addSuccess: boolean) {
     this.http
       .post<{ Post }>(
-        'http://13.41.158.166:8083/employee',
+        'http://18.130.229.145:8083/employee',
         postData,
         {
           observe: 'response'
